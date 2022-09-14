@@ -43,12 +43,12 @@ module.exports = {
                     [],
                     // callback function to handle results of SQL query
                      () => {
-                        console.log(name+ ' added successfully');
-                    },
-                    error => {
-                        console.log('Error adding lists '+ error.message);
-                    },
-                );
+                    console.log(name+ ' added successfully');
+                },
+                error => {
+                    console.log('Error adding lists '+ error.message);
+                },
+            );
         });
     },
 
