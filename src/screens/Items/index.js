@@ -9,8 +9,7 @@ const ItemsScreen = props => {
         <View style={styles.bottom}>
             <TouchableOpacity 
             style={styles.button}
-            onPress={() => console.log('Add Item!')}
-            >
+            onPress={() => console.log('Add Item!')}>
                 <Text style={styles.buttonText}>Add Item</Text>
             </TouchableOpacity>
         </View>
