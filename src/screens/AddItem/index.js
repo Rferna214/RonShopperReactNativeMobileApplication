@@ -1,39 +1,42 @@
 import React, {useState} from 'react';
+import {View, Text, TextInput, Pressable} from 'react-native'
 import styles from './styles';
-import { View, Text, TextInput, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 
 const database = require('../../components/Handlers/database.js');
 
-const AddList = props => {
+
+const AddItemScreen = props => {
 
     const navigation = useNavigation();
 
     const [name, setName] = useState('');
-    const [store, setStore] = useState('');
-    const [date, setDate] = useState('');
+    const [price, setPrice] = useState('');
+    const [quantity, setQuantity] = useState('');
 
-    const onListAdd = () => {
+    const onItemAdd = () => {
         if(!name){
-            alert('Please enter a shopping list name.');
+            alert('Please enter a item name.');
             return;
         }
-        if(!store){
-            alert('Please enter a store.');
+        if(!price){
+            alert('Please enter a price.');
             return;
         }
-        if(!date){
-            alert('Please enter a date in format YYYY-MM-DD.');
+        if(!quantity){
+            alert('Please enter a quantity.');
             return;
         }
         try {
-            database.addList(name,store,date);
+            database.addItem(name,price,quantity);
         } catch (error){
-            console.log('Error adding list '+ error);
+            console.log('Error adding item '+ error);
         }
         alert(name + ' Added!');
         navigation.navigate('Start Shopping!');
     }
+    
 
   return (
     <View style={styles.container}>
@@ -43,25 +46,25 @@ const AddList = props => {
                 onChangeText={value => setName(value)}
                 style={styles.name}
                 clearButtonMode={'while-editing'}
-                placeholder={'Enter List Name'}
+                placeholder={'Enter Item Name'}
                 placeholderTextColor={'grey'}
             
             />
             <TextInput
-                value={store}
-                onChangeText={value => setStore(value)}
-                style={styles.store}
+                value={price}
+                onChangeText={value => setPrice(value)}
+                style={styles.price}
                 clearButtonMode={'while-editing'}
-                placeholder={'Enter Store'}
+                placeholder={'Enter Price'}
                 placeholderTextColor={'grey'}
             
             />
             <TextInput
-                value={date}
-                onChangeText={value => setDate(value)}
-                style={styles.date}
+                value={quantity}
+                onChangeText={value => setQuantity(value)}
+                style={styles.quantity}
                 clearButtonMode={'while-editing'}
-                placeholder={'Enter Date in format YYYY-MM-DD'}
+                placeholder={'Enter Quantity'}
                 placeholderTextColor={'grey'}
             
             />
@@ -69,7 +72,7 @@ const AddList = props => {
         <View style={styles.bottomContainer}>
             <Pressable 
             style={styles.button}
-            onPress={'onListAdd'}>
+            onPress={onItemAdd}>
             <Text style={styles.buttonText}>Add</Text>
             </Pressable>
         </View>
@@ -77,4 +80,4 @@ const AddList = props => {
   );
 };
 
-export default AddList;
+export default AddItemScreen;
