@@ -1,10 +1,13 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 
 const Item = props => {
 
     const post = props.post;
+    const navigation = useNavigation();
+
     const onPress = () => {
         console.log(post.name);
     }

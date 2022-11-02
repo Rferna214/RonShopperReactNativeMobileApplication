@@ -69,7 +69,7 @@ const AddList = props => {
         <View style={styles.bottomContainer}>
             <Pressable 
             style={styles.button}
-            onPress={'onListAdd'}>
+            onPress={onListAdd}>
             <Text style={styles.buttonText}>Add</Text>
             </Pressable>
         </View>
