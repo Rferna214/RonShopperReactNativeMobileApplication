@@ -3,13 +3,25 @@ import { Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 
+const database = require('../../components/Handlers/database.js');
+
 const Item = props => {
 
     const post = props.post;
     const navigation = useNavigation();
 
     const onPress = () => {
-        console.log(post.name);
+        if(post.list_id){
+            try{
+                database.addListItems(post.list_id, post.id);
+            }catch(error){
+                console.log('Error Adding list item ', error);
+            }
+            alert('Item add to list!');
+            navigation.navigate('Start Shopping!');
+        }else{
+            console.log(post.name);
+        }
     }
 
 

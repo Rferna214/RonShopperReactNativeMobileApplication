@@ -44,7 +44,7 @@ const ExistingListScreen = props => {
             );
         });
 
-        alert(name + 'updated!');
+        alert(name + ' updated!');
         navigation.navigate('Start Shopping!');
     }
     const onListDelete = () =>{

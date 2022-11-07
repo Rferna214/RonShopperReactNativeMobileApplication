@@ -6,7 +6,6 @@ import Item from '../../components/Item';
 
 
 import { openDatabase } from "react-native-sqlite-storage";
-import { LearnMoreLinks } from 'react-native/Libraries/NewAppScreen';
 
 const shopperDB = openDatabase({name: 'Shopper.db'});
 const itemsTableName = 'items';
@@ -59,7 +58,7 @@ const AddListItemsScreen = props => {
               //     list_id: 2
               //   },
               //   {
-              //     id: 3,
+              //     id: 2,
               //     name: Eggs,
               //     price: 2.99,
               //     quantity: 2,
