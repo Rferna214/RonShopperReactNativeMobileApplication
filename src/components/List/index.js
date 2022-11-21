@@ -14,7 +14,12 @@ const List = props => {
 
   return (
     <View style={styles.container}>
-        <TouchableOpacity style={styles.touchable} onPress={onPress}>
+        <TouchableOpacity style={styles.touchable} onPress={onPress}
+        accessible={true}
+        accessibilityRole='button'
+        accessibilityLabel='Tap to edit'
+        accessibilityHint='Goes to edit lists screen'
+        >
             <View style={{flex: 2}}>
                 <Text style={styles.name} numberOfLines={1}>
                     {post.name}
